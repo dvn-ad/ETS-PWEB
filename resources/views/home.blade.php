@@ -3,8 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register/Login</title>
+    <!-- link style.css -->
+    <link href="{{asset('style.css')}}" rel="stylesheet" type="text/css"> 
 </head>
-<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
 <body>
 
 

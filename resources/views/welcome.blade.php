@@ -38,6 +38,7 @@
                             Log in
                         </a>
 
+    @include('layouts.header')
                         @if (Route::has('register'))
                             <a
                                 href="{{ route('register') }}"

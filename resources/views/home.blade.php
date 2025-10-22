@@ -3,8 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register/Login</title>
-    <!-- link style.css -->
-    <link href="https://ets-pweb-production.up.railway.app/style.css" rel="stylesheet" type="text/css"> 
+    <!-- Use local app.css -->
+    <link href="/css/app.css" rel="stylesheet" type="text/css">
 </head>
 <script>
     function showPassRegis() {
@@ -26,23 +26,9 @@
 </script>
 <body>
 
+    @include('layouts.header')
 
     @auth
-        <h1>Welcome back, {{ auth()->user()->name }}!</h1>
-        <form action="/logout" method="POST">
-            @csrf
-            <button type="submit">Logout</button>
-        </form>
-
-        @if(auth()->user()->is_admin)
-            <p>
-                <a href="{{ route('books.index') }}">Manage Books</a>
-                <a href="{{ route('authors.index') }}">Manage Authors</a>
-                <a href="{{ route('publishers.index') }}">Manage Publishers</a>
-            </p>
-        @endif
-
-        <h2>Books</h2>
         <table border="1" cellpadding="8" cellspacing="0">
             <thead>
                 <tr>

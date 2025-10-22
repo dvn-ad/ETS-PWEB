@@ -1,16 +1,14 @@
-@import 'tailwindcss';
+/* Copy this file to public/css/app.css to make sure it is served correctly */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
-
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: #f3f4f6;
+    color: #1e293b;
+    margin: 0;
+    padding: 0;
 }
 
-/* Modern header styles */
 .main-header {
     background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
     color: #fff;
@@ -60,11 +58,10 @@
     background: #b91c1c;
 }
 
-/* General improvements */
-body {
-    font-family: var(--font-sans);
-    background: #f3f4f6;
-    color: #1e293b;
+h1, h2, h3 {
+    font-weight: 700;
+    color: #1e40af;
+    margin-top: 1.5rem;
 }
 
 table {
@@ -74,6 +71,7 @@ table {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin-bottom: 2rem;
 }
 th, td {
     padding: 0.75rem 1rem;
@@ -103,4 +101,51 @@ button, .btn {
 }
 button:hover, .btn:hover {
     background: #1e40af;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover {
+    color: #1e40af;
+    text-decoration: underline;
+}
+
+form {
+    margin-bottom: 1.5rem;
+}
+
+input, select, textarea {
+    padding: 0.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px #dbeafe;
+}
+
+.alert-success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #10b981;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.alert-error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #ef4444;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
 }

@@ -22,7 +22,9 @@
             <form method="GET" action="{{ route('books.public') }}" class="search-form">
                 <div class="search-input-group">
                     <select name="search_type" id="search_type" class="search-select">
-                        <option value="name" {{ request('search_type', 'name') == 'name' ? 'selected' : '' }}>Search by Name</option>
+                        <option value="title" {{ request('search_type', 'title') == 'title' ? 'selected' : '' }}>Search by Title</option>
+                        <option value="author" {{ request('search_type') == 'author' ? 'selected' : '' }}>Search by Author</option>
+                        <option value="publisher" {{ request('search_type') == 'publisher' ? 'selected' : '' }}>Search by Publisher</option>
                         <option value="id" {{ request('search_type') == 'id' ? 'selected' : '' }}>Search by ID</option>
                     </select>
                     <input 
@@ -30,7 +32,7 @@
                         name="search" 
                         id="search" 
                         class="search-input" 
-                        placeholder="Enter book name or ID..." 
+                        placeholder="Enter book title..." 
                         value="{{ request('search') }}"
                     >
                     <button type="submit" class="btn-search">Search</button>
@@ -77,11 +79,19 @@
         const searchInput = document.getElementById('search');
         
         function updatePlaceholder() {
-            if (searchTypeSelect.value === 'id') {
+            const searchType = searchTypeSelect.value;
+            
+            if (searchType === 'id') {
                 searchInput.placeholder = 'Enter book ID...';
                 searchInput.type = 'number';
-            } else {
-                searchInput.placeholder = 'Enter book name...';
+            } else if (searchType === 'title') {
+                searchInput.placeholder = 'Enter book title...';
+                searchInput.type = 'text';
+            } else if (searchType === 'author') {
+                searchInput.placeholder = 'Enter author name...';
+                searchInput.type = 'text';
+            } else if (searchType === 'publisher') {
+                searchInput.placeholder = 'Enter publisher name...';
                 searchInput.type = 'text';
             }
         }

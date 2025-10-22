@@ -14,14 +14,24 @@ class BookController extends Controller
         // Check if there's a search query
         if ($request->has('search') && $request->search != '') {
             $searchTerm = $request->search;
-            $searchType = $request->search_type ?? 'name';
+            $searchType = $request->search_type ?? 'title';
 
             if ($searchType === 'id') {
                 // Search by ID (exact match)
                 $query->where('id', $searchTerm);
-            } else {
-                // Search by name (partial match, case-insensitive)
+            } elseif ($searchType === 'title') {
+                // Search by book title (partial match, case-insensitive)
                 $query->where('title', 'LIKE', '%' . $searchTerm . '%');
+            } elseif ($searchType === 'publisher') {
+                // Search by publisher name
+                $query->whereHas('publisher', function($q) use ($searchTerm) {
+                    $q->where('name', 'LIKE', '%' . $searchTerm . '%');
+                });
+            } elseif ($searchType === 'author') {
+                // Search by author name
+                $query->whereHas('author', function($q) use ($searchTerm) {
+                    $q->where('name', 'LIKE', '%' . $searchTerm . '%');
+                });
             }
         }
 

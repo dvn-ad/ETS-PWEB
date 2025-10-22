@@ -12,8 +12,8 @@ class BookController extends Controller
 {
     public function index()
     {
-        $books = Book::with(['author', 'publisher'])->latest()->paginate(10);
-        return view('admin.books.index', compact('books'));
+        $books = Book::with(['author', 'publisher']);
+        return view('admin.books.index' , compact('books'));
     }
 
     public function create()
@@ -36,7 +36,7 @@ class BookController extends Controller
 
         Book::create($data);
 
-        return redirect()->route('books.index')->with('success', 'Book created successfully.');
+        return redirect()->route('books.index');
     }
 
     public function edit(Book $book)
@@ -59,12 +59,12 @@ class BookController extends Controller
 
         $book->update($data);
 
-        return redirect()->route('books.index')->with('success', 'Book updated successfully.');
+        return redirect()->route('books.index');
     }
 
     public function destroy(Book $book)
     {
         $book->delete();
-        return redirect()->route('books.index')->with('success', 'Book deleted successfully.');
+        return redirect()->route('books.index');
     }
 }

@@ -1,4 +1,11 @@
-@php /** @var \Illuminate\Pagination\LengthAwarePaginator|\App\Models\Book[] $books */ @endphp
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <!-- link style.css -->
+    <link href="https://ets-pweb-production.up.railway.app/style.css" rel="stylesheet" type="text/css"> 
+</head>
+
 <h1>Manage Books</h1>
 
 <p>
@@ -28,17 +35,23 @@
             <tr>
                 <td>{{ $book->id }}</td>
                 <td>{{ $book->title }}</td>
-                <td>{{ \Illuminate\Support\Str::limit($book->description, 60) }}</td>
-                <td>${{ number_format($book->price, 2) }}</td>
-                <td>{{ optional($book->release_date)->format('Y-m-d') }}</td>
+                <td>{{ $book->description }}</td>
+                <td>Rp {{ number_format($book->price) }}</td>
+                <td>{{ optional($book->release_date)->format('d-m-Y') }}</td>
                 <td>{{ $book->publisher->name ?? '-' }}</td>
                 <td>{{ $book->author->name ?? '-' }}</td>
                 <td>
-                    <a href="{{ route('books.edit', $book) }}">Edit</a>
+                    <!-- <a href="{{ route('books.edit', $book) }}">Edit</a> -->
+                     <form action="{{ route('books.edit', $book) }}" method="GET" style="display:inline;">
+                        <button type="submit" style="padding:8px 16px; background:#007bff; color:white; border:none; border-radius:4px; cursor:pointer;">
+                            Edit
+                        </button>
+                    </form>
+
                     <form action="{{ route('books.destroy', $book) }}" method="POST" style="display:inline" onsubmit="return confirm('Delete this book?')">
                         @csrf
                         @method('DELETE')
-                        <button type="submit">Delete</button>
+                        <button type="submit" style="padding:8px 16px; background:#ff0000; color:white; border:none; border-radius:4px; cursor:pointer;">Delete</button>
                     </form>
                 </td>
             </tr>
@@ -50,7 +63,4 @@
 
 <div style="margin-top: 10px;">
     {{ $books->links() }}
-    <!-- Default pagination links; requires Tailwind or will render plain if not styled -->
-    <!-- If pagination styling isn't desired, consider simple ->get() instead of ->paginate() in controller. -->
-    
 </div>

@@ -33,13 +33,6 @@
             @csrf
             <button type="submit">Logout</button>
         </form>
-        
-        @if (session('success'))
-            <p style="color:green;">{{ session('success') }}</p>
-        @endif
-        @if (session('error'))
-            <p style="color:red;">{{ session('error') }}</p>
-        @endif
 
         @if(auth()->user()->is_admin)
             <p>
@@ -65,8 +58,8 @@
                     <tr>
                         <td>{{ $book->id }}</td>
                         <td>{{ $book->title }}</td>
-                        <td>{{ \Illuminate\Support\Str::limit($book->description, 60) }}</td>
-                        <td>${{ number_format($book->price, 2) }}</td>
+                        <td>{{ $book->description }}</td>
+                        <td>Rp {{ number_format($book->price, 0) }}</td>
                         <td>{{ optional($book->release_date)->format('Y-m-d') }}</td>
                         <td>{{ $book->publisher->name ?? '-' }}</td>
                         <td>{{ $book->author->name ?? '-' }}</td>

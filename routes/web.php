@@ -13,21 +13,23 @@ Route::get('/', function () {
     return view('home');
 });
 
-// Public read-only routes for books, authors, publishers
-Route::get('/books', function () {
-    $books = Book::with(['author', 'publisher'])->latest()->get();
-    return view('books.index', compact('books'));
-})->name('books.public');
 
-Route::get('/authors', function () {
-    $authors = Author::withCount('books')->latest()->get();
-    return view('authors.index', compact('authors'));
-})->name('authors.public');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/books', function () {
+        $books = Book::with(['author', 'publisher'])->latest()->get();
+        return view('books.index', compact('books'));
+    })->name('books.public');
 
-Route::get('/publishers', function () {
-    $publishers = Publisher::withCount('books')->latest()->get();
-    return view('publishers.index', compact('publishers'));
-})->name('publishers.public');
+    Route::get('/authors', function () {
+        $authors = Author::withCount('books')->latest()->get();
+        return view('authors.index', compact('authors'));
+    })->name('authors.public');
+
+    Route::get('/publishers', function () {
+        $publishers = Publisher::withCount('books')->latest()->get();
+        return view('publishers.index', compact('publishers'));
+    })->name('publishers.public');
+});
 
 Route::post('/register', [UserController::class, 'register']);
 

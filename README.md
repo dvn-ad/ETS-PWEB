@@ -9,13 +9,15 @@
 
 Library Collection Databse
 
-## Fiture
-
-1. CRUD Product (Rafi)
-2. CRUD Books Category (Rafi)
-3. CRUD Author (Rafi)
-4. CRUD Pinjem / HOLD
-5. Search Books and Filter
-6. CRUD Review (Davin)
-7. CRUD User (Davin)
-8. CRUD Request (Davin) / HOLD
+## Feature
+| No. | Status | Feature | Assigned | 
+:----:|:----:|:--------:|:--------:
+|1 | **On Progress** | CRUD Books | Davin
+|2 | - | CRUD Books Category | Rafi
+|3 | - | CRUD Author         | Rafi
+|4 | - | CRUD Pinjem / HOLD | 
+|5 | - | Search Books and Filter |
+|6 | - | CRUD Review | Davin 
+|7 | **Done** | CRUD User | Davin
+|8 | - | CRUD Request / HOLD | Davin 
+|9 | - | CRUD Publisher

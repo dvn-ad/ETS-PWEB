@@ -17,6 +17,30 @@
             <div class="alert-success">{{ session('success') }}</div>
         @endif
 
+        <!-- Search Form -->
+        <div class="search-container">
+            <form method="GET" action="{{ route('books.public') }}" class="search-form">
+                <div class="search-input-group">
+                    <select name="search_type" id="search_type" class="search-select">
+                        <option value="name" {{ request('search_type', 'name') == 'name' ? 'selected' : '' }}>Search by Name</option>
+                        <option value="id" {{ request('search_type') == 'id' ? 'selected' : '' }}>Search by ID</option>
+                    </select>
+                    <input 
+                        type="text" 
+                        name="search" 
+                        id="search" 
+                        class="search-input" 
+                        placeholder="Enter book name or ID..." 
+                        value="{{ request('search') }}"
+                    >
+                    <button type="submit" class="btn-search">Search</button>
+                    @if(request('search'))
+                        <a href="{{ route('books.public') }}" class="btn-clear">Clear</a>
+                    @endif
+                </div>
+            </form>
+        </div>
+
         <table>
             <thead>
                 <tr>
@@ -46,6 +70,27 @@
             </tbody>
         </table>
     </div>
+
+    <script>
+        // Update placeholder text based on search type
+        const searchTypeSelect = document.getElementById('search_type');
+        const searchInput = document.getElementById('search');
+        
+        function updatePlaceholder() {
+            if (searchTypeSelect.value === 'id') {
+                searchInput.placeholder = 'Enter book ID...';
+                searchInput.type = 'number';
+            } else {
+                searchInput.placeholder = 'Enter book name...';
+                searchInput.type = 'text';
+            }
+        }
+        
+        searchTypeSelect.addEventListener('change', updatePlaceholder);
+        
+        // Set initial placeholder on page load
+        updatePlaceholder();
+    </script>
 
 </body>
 </html>

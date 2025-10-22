@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookController;
 use App\Models\Book;
 use App\Models\Author;
 use App\Models\Publisher;
@@ -15,10 +16,7 @@ Route::get('/', function () {
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/books', function () {
-        $books = Book::with(['author', 'publisher'])->latest()->get();
-        return view('books.index', compact('books'));
-    })->name('books.public');
+    Route::get('/books', [BookController::class, 'index'])->name('books.public');
 
     Route::get('/authors', function () {
         $authors = Author::withCount('books')->latest()->get();

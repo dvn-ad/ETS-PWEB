@@ -33,6 +33,42 @@
             @csrf
             <button type="submit">Logout</button>
         </form>
+
+        @if(auth()->user()->is_admin)
+            <p>
+                <a href="{{ route('books.index') }}">Manage Books (Admin)</a>
+            </p>
+        @endif
+
+        <h2>Books</h2>
+        <table border="1" cellpadding="8" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Release Date</th>
+                    <th>Publisher</th>
+                    <th>Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse(($books ?? []) as $book)
+                    <tr>
+                        <td>{{ $book->id }}</td>
+                        <td>{{ $book->title }}</td>
+                        <td>{{ $book->description }}</td>
+                        <td>Rp {{ number_format($book->price, 0) }}</td>
+                        <td>{{ optional($book->release_date)->format('Y-m-d') }}</td>
+                        <td>{{ $book->publisher->name ?? '-' }}</td>
+                        <td>{{ $book->author->name ?? '-' }}</td>
+                    </tr>
+                @empty
+                    <tr><td colspan="7">No books available.</td></tr>
+                @endforelse
+            </tbody>
+        </table>
     @else
         <div style="display:flex; justify-content:center; align-items:center; gap:40px; height:100vh;">
             <div id="registerForm" style="padding:40px; width:500px; text-align:center; border:2px solid #333; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1);">

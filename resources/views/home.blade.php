@@ -6,6 +6,24 @@
     <!-- link style.css -->
     <link href="https://ets-pweb-production.up.railway.app/style.css" rel="stylesheet" type="text/css"> 
 </head>
+<script>
+    function showPassRegis() {
+        var y = document.getElementById("regisPass");
+        if (y.type === "password") {
+            y.type = "text";
+        } else {
+            y.type = "password";
+        }
+    }
+    function showPassLogin(){
+        var x = document.getElementById("loginPass");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
 <body>
 
 
@@ -23,7 +41,8 @@
                     @csrf
                     <input type="text" name="name" placeholder="Name" required style="width:100%; padding:15px; font-size:18px; margin-bottom:20px; border:1px solid #ccc; border-radius:5px;"><br>
                     <input type="email" name="email" placeholder="Email" required style="width:100%; padding:15px; font-size:18px; margin-bottom:20px; border:1px solid #ccc; border-radius:5px;"><br>
-                    <input type="password" name="password" placeholder="Password" required style="width:100%; padding:15px; font-size:18px; margin-bottom:20px; border:1px solid #ccc; border-radius:5px;"><br>
+                    <input id="regisPass" type="password" name="password" placeholder="Password" required style="width:100%; padding:15px; font-size:18px; margin-bottom:20px; border:1px solid #ccc; border-radius:5px;"><br>
+                    <input type="checkbox" onclick="showPassRegis()">Show Password<br><br>
                     <button type="submit" style="width:100%; padding:15px; font-size:20px; background:#007bff; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">Register</button>
                 </form>
                 <br>
@@ -37,8 +56,9 @@
                 <form action="/login" method="POST">
                     @csrf
                     <input type="email" name="loginemail" placeholder="Email" required style="width:100%; padding:15px; font-size:18px; margin-bottom:20px; border:1px solid #ccc; border-radius:5px;"><br>
-                    <input type="password" name="loginpassword" placeholder="Password" required style="width:100%; padding:15px; font-size:18px; margin-bottom:20px; border:1px solid #ccc; border-radius:5px;"><br>
+                    <input id="loginPass" type="password" name="loginpassword" placeholder="Password" required style="width:100%; padding:15px; font-size:18px; margin-bottom:20px; border:1px solid #ccc; border-radius:5px;"><br>
                     <button type="submit" style="width:100%; padding:15px; font-size:20px; background:#28a745; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">Log in</button>
+                    <input type="checkbox" onclick="showPassLogin()">Show Password
                 </form>
                 <br>
                 <button onclick="showRegister()" style="background:none; border:none; color:blue; text-decoration:underline; cursor:pointer; font-size:16px; margin-top:10px;">

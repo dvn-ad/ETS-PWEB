@@ -36,7 +36,9 @@
 
         @if(auth()->user()->is_admin)
             <p>
-                <a href="{{ route('books.index') }}">Manage Books (Admin)</a>
+                <a href="{{ route('books.index') }}">Manage Books</a>
+                <a href="{{ route('authors.index') }}">Manage Authors</a>
+                <a href="{{ route('publishers.index') }}">Manage Publishers</a>
             </p>
         @endif
 

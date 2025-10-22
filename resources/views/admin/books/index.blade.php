@@ -1,24 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    @include('layouts.header')
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
-    <!-- Use local app.css -->
+    <title>Manage Books - Admin</title>
     <link href="/css/app.css" rel="stylesheet" type="text/css">
 </head>
+<body>
 
-<h1>Manage Books</h1>
+    @include('layouts.header')
 
-<p>
-    <a href="{{ route('books.create') }}">+ Create Book</a>
-    | <a href="/">Back to Home</a>
-</p>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+        <h1 style="color: #1e40af; margin-bottom: 2rem;">Manage Books</h1>
 
-@if(session('success'))
-    <div style="color: green;">{{ session('success') }}</div>
-@endif
+        <p style="margin-bottom: 1.5rem;">
+            <a href="{{ route('books.create') }}" style="display: inline-block; background: #10b981; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">+ Add Book</a>
+        </p>
 
-<table border="1" cellpadding="8" cellspacing="0">
+        @if(session('success'))
+            <div class="alert-success">{{ session('success') }}</div>
+        @endif
+
+        <table>
     <thead>
         <tr>
             <th>ID</th>
@@ -65,3 +68,8 @@
 <div style="margin-top: 10px;">
     {{ $books->links() }}
 </div>
+
+    </div>
+
+</body>
+</html>

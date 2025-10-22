@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register/Login</title>
+    <title>Welcome to WebPro Library</title>
     <!-- Use local app.css -->
     <link href="/css/app.css" rel="stylesheet" type="text/css">
 </head>
@@ -29,34 +30,35 @@
     @include('layouts.header')
 
     @auth
-        <table border="1" cellpadding="8" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Release Date</th>
-                    <th>Publisher</th>
-                    <th>Author</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse(($books ?? []) as $book)
-                    <tr>
-                        <td>{{ $book->id }}</td>
-                        <td>{{ $book->title }}</td>
-                        <td>{{ $book->description }}</td>
-                        <td>Rp {{ number_format($book->price, 0) }}</td>
-                        <td>{{ optional($book->release_date)->format('Y-m-d') }}</td>
-                        <td>{{ $book->publisher->name ?? '-' }}</td>
-                        <td>{{ $book->author->name ?? '-' }}</td>
-                    </tr>
-                @empty
-                    <tr><td colspan="7">No books available.</td></tr>
-                @endforelse
-            </tbody>
-        </table>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 3rem 2rem;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h1 style="font-size: 3rem; color: #1e40af; margin-bottom: 1rem;">📚 Welcome to WebPro Library</h1>
+                <p style="font-size: 1.25rem; color: #475569; line-height: 1.8;">
+                    Your gateway to a world of knowledge and imagination. Explore our extensive collection of books, 
+                    discover new authors, and find your next great read.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color: #2563eb; font-size: 1.5rem; margin-bottom: 1rem;">📚 Browse Books</h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">Discover thousands of titles across all genres and categories.</p>
+                    <a href="/books" style="display: inline-block; background: #2563eb; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">View Books</a>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color: #2563eb; font-size: 1.5rem; margin-bottom: 1rem;">✍️ Browse Authors</h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">Learn about the talented writers behind your favorite books.</p>
+                    <a href="/authors" style="display: inline-block; background: #2563eb; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">View Authors</a>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color: #2563eb; font-size: 1.5rem; margin-bottom: 1rem;">🏢 Browse Publishers</h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">Explore books from renowned publishing houses worldwide.</p>
+                    <a href="/publishers" style="display: inline-block; background: #2563eb; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">View Publishers</a>
+                </div>
+            </div>
+        </div>
     @else
         <div style="display:flex; justify-content:center; align-items:center; gap:40px; height:100vh;">
             <div id="registerForm" style="padding:40px; width:500px; text-align:center; border:2px solid #333; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1);">
@@ -65,12 +67,15 @@
                     @csrf
                     <input type="text" name="name" placeholder="Name" required style="width:100%; padding:15px; font-size:18px; margin-bottom:20px; border:1px solid #ccc; border-radius:5px;"><br>
                     <input type="email" name="email" placeholder="Email" required style="width:100%; padding:15px; font-size:18px; margin-bottom:20px; border:1px solid #ccc; border-radius:5px;"><br>
-                    <input id="regisPass" type="password" name="password" placeholder="Password" required style="width:100%; padding:15px; font-size:18px; margin-bottom:20px; border:1px solid #ccc; border-radius:5px;"><br>
-                    <input type="checkbox" onclick="showPassRegis()">Show Password<br><br>
+                    <input id="regisPass" type="password" name="password" placeholder="Password" required style="width:100%; padding:15px; font-size:18px; margin-bottom:10px; border:1px solid #ccc; border-radius:5px;"><br>
+                    <div style="display: flex; align-items: center; justify-content: flex-start; margin-bottom: 20px;">
+                        <input type="checkbox" onclick="showPassRegis()" id="showPassRegisCheck" style="width: 20px; height: 20px; cursor: pointer; margin-right: 8px;">
+                        <label for="showPassRegisCheck" style="font-size: 16px; cursor: pointer; user-select: none;">Show Password</label>
+                    </div>
                     <button type="submit" style="width:100%; padding:15px; font-size:20px; background:#007bff; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">Register</button>
                 </form>
                 <br>
-                <button onclick="showLogin()" style="background:none; border:none; color:blue; text-decoration:underline; cursor:pointer; font-size:16px; margin-top:10px;">
+                <button onclick="showLogin()" style="width:100%; padding:12px; font-size:16px; background:#6c757d; color:white; border:none; border-radius:5px; cursor:pointer; margin-top:10px;">
                     Already have an account? Login
                 </button>
             </div>
@@ -80,12 +85,15 @@
                 <form action="/login" method="POST">
                     @csrf
                     <input type="email" name="loginemail" placeholder="Email" required style="width:100%; padding:15px; font-size:18px; margin-bottom:20px; border:1px solid #ccc; border-radius:5px;"><br>
-                    <input id="loginPass" type="password" name="loginpassword" placeholder="Password" required style="width:100%; padding:15px; font-size:18px; margin-bottom:20px; border:1px solid #ccc; border-radius:5px;"><br>
+                    <input id="loginPass" type="password" name="loginpassword" placeholder="Password" required style="width:100%; padding:15px; font-size:18px; margin-bottom:10px; border:1px solid #ccc; border-radius:5px;"><br>
+                    <div style="display: flex; align-items: center; justify-content: flex-start; margin-bottom: 20px;">
+                        <input type="checkbox" onclick="showPassLogin()" id="showPassLoginCheck" style="width: 20px; height: 20px; cursor: pointer; margin-right: 8px;">
+                        <label for="showPassLoginCheck" style="font-size: 16px; cursor: pointer; user-select: none;">Show Password</label>
+                    </div>
                     <button type="submit" style="width:100%; padding:15px; font-size:20px; background:#28a745; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">Log in</button>
-                    <input type="checkbox" onclick="showPassLogin()">Show Password
                 </form>
                 <br>
-                <button onclick="showRegister()" style="background:none; border:none; color:blue; text-decoration:underline; cursor:pointer; font-size:16px; margin-top:10px;">
+                <button onclick="showRegister()" style="width:100%; padding:12px; font-size:16px; background:#6c757d; color:white; border:none; border-radius:5px; cursor:pointer; margin-top:10px;">
                     Don't have an account? Register
                 </button>
             </div>

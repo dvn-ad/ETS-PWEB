@@ -1,20 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Authors - Admin</title>
-    <link href="https://ets-pweb-production.up.railway.app/style.css" rel="stylesheet" type="text/css"> 
+    <link href="/css/app.css" rel="stylesheet" type="text/css">
 </head>
+<body>
 
-<h1>Manage Authors</h1>
+    @include('layouts.header')
 
-<p>
-    <a href="{{ route('authors.create') }}">+ Create Author</a>
-    | <a href="{{ route('books.index') }}">Manage Books</a>
-    | <a href="{{ route('publishers.index') }}">Manage Publishers</a>
-    | <a href="/">Home</a>
-</p>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+        <h1 style="color: #1e40af; margin-bottom: 2rem;">Manage Authors</h1>
 
-<table border="1" cellpadding="8" cellspacing="0">
+        <p style="margin-bottom: 1.5rem;">
+            <a href="{{ route('authors.create') }}" style="display: inline-block; background: #10b981; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">+ Create Author</a>
+        </p>
+
+        @if(session('success'))
+            <div class="alert-success">{{ session('success') }}</div>
+        @endif
+
+        <table>
     <thead>
         <tr>
             <th>ID</th>
@@ -54,3 +61,8 @@
 <div style="margin-top: 10px;">
     {{ $authors->links() }}
 </div>
+
+    </div>
+
+</body>
+</html>

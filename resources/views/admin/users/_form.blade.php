@@ -19,7 +19,7 @@
         Email
         <input type="email" name="email" value="{{ old('email', $editing ? $user->email : '') }}" required />
     </label>
-
+    <!-- pw blank == no update -->
     <label>
         Password {{ $editing ? '(leave blank to keep current)' : '' }}
         <input type="password" name="password" {{ $editing ? '' : 'required' }} />

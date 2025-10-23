@@ -14,7 +14,7 @@
         <h1 style="color: #1e40af; margin-bottom: 2rem;">Create User</h1>
 
         <p style="margin-bottom: 1.5rem;">
-            <a href="{{ route('users.index') }}" style="color: #2563eb;">← Back to Users</a>
+            <a href="{{ route('users.index') }}" style="color: #2563eb;">Back to Users</a>
         </p>
 
         <form action="{{ route('users.store') }}" method="POST">

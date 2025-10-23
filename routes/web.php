@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/books', [BookController::class, 'index'])->name('books.public');
 
@@ -28,6 +29,8 @@ Route::middleware(['auth'])->group(function () {
         $publishers = Publisher::withCount('books')->latest()->get();
         return view('publishers.index', compact('publishers'));
     })->name('publishers.public');
+
+    Route::resource('review', App\Http\Controllers\ReviewController::class)->only(['index', 'create', 'store']);
 });
 
 Route::post('/register', [UserController::class, 'register']);

@@ -17,7 +17,7 @@
             <div class="alert-success">{{ session('success') }}</div>
         @endif
 
-        <!-- Search Form -->
+        <!-- search form -->
         <div class="search-container">
             <form method="GET" action="{{ route('books.public') }}" class="search-form">
                 <div class="search-input-group">
@@ -76,7 +76,6 @@
     </div>
 
     <script>
-        // Update placeholder text based on search type
         const searchTypeSelect = document.getElementById('search_type');
         const searchInput = document.getElementById('search');
         

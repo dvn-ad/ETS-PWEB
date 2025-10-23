@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to WebPro Library</title>
-    <!-- Use local app.css -->
+    <title>WebPro Library</title>
+    
     <link href="/css/app.css" rel="stylesheet" type="text/css">
 </head>
 <script>
@@ -32,32 +32,58 @@
     @auth
         <div style="max-width: 1200px; margin: 0 auto; padding: 3rem 2rem;">
             <div style="text-align: center; margin-bottom: 3rem;">
-                <h1 style="font-size: 3rem; color: #1e40af; margin-bottom: 1rem;">📚 Welcome to WebPro Library</h1>
+                <img src="/favicon.ico" alt="WebPro Library Favicon" style="width:128px; height:128px;">
+                <h1 style="font-size: 3rem; color: #1e40af; margin-bottom: 1rem;">Welcome to WebPro Library</h1>
                 <p style="font-size: 1.25rem; color: #475569; line-height: 1.8;">
-                    Your gateway to a world of knowledge and imagination. Explore our extensive collection of books, 
-                    discover new authors, and find your next great read.
+                    You can check out our collection of books, authors, and publishers using the links below.
                 </p>
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
                 <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                     <h3 style="color: #2563eb; font-size: 1.5rem; margin-bottom: 1rem;">📚 Browse Books</h3>
-                    <p style="color: #64748b; margin-bottom: 1.5rem;">Discover thousands of titles across all genres and categories.</p>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">Check our books</p>
                     <a href="/books" style="display: inline-block; background: #2563eb; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">View Books</a>
                 </div>
 
                 <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                     <h3 style="color: #2563eb; font-size: 1.5rem; margin-bottom: 1rem;">✍️ Browse Authors</h3>
-                    <p style="color: #64748b; margin-bottom: 1.5rem;">Learn about the talented writers behind your favorite books.</p>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">Check our authors</p>
                     <a href="/authors" style="display: inline-block; background: #2563eb; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">View Authors</a>
                 </div>
 
                 <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                     <h3 style="color: #2563eb; font-size: 1.5rem; margin-bottom: 1rem;">🏢 Browse Publishers</h3>
-                    <p style="color: #64748b; margin-bottom: 1.5rem;">Explore books from renowned publishing houses worldwide.</p>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">Check our publishers</p>
                     <a href="/publishers" style="display: inline-block; background: #2563eb; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">View Publishers</a>
                 </div>
             </div>
+        </div>
+
+        <!-- Review Section -->
+        <div style="max-width: 900px; margin: 3rem auto 0 auto; padding: 2rem; background: #f8fafc; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <h2 style="color: #1e40af; font-size: 2rem; margin-bottom: 1.5rem;">Website Reviews</h2>
+            <a href="{{ route('review.create') }}" class="btn btn-primary" style="margin-bottom: 1.5rem;">Add Your Review</a>
+            <table style="width:100%; border-collapse:collapse; background:white;">
+                <thead>
+                    <tr style="background:#e0e7ef;">
+                        <th style="padding:10px; border:1px solid #d1d5db;">Name</th>
+                        <th style="padding:10px; border:1px solid #d1d5db;">Comment</th>
+                        <th style="padding:10px; border:1px solid #d1d5db;">Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(App\Models\Review::latest()->take(5)->get() as $review)
+                        <tr>
+                            <td style="padding:10px; border:1px solid #d1d5db;">
+                                {{ optional(App\Models\User::find($review->user_id))->name ?? 'Unknown' }}
+                            </td>
+                            <td style="padding:10px; border:1px solid #d1d5db;">{{ $review->content }}</td>
+                            <td style="padding:10px; border:1px solid #d1d5db;">{{ $review->rating }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     @else
         <div style="display:flex; justify-content:center; align-items:center; gap:40px; height:100vh;">

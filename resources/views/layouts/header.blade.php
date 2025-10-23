@@ -38,7 +38,7 @@
 </header>
 
 <script>
-    // Dropdown functionality
+    //NEW NEW dropdown
     document.addEventListener('DOMContentLoaded', function() {
         const dropdown = document.querySelector('.dropdown');
         if (dropdown) {
@@ -50,7 +50,7 @@
                 dropdown.classList.toggle('active');
             });
             
-            // Close dropdown when clicking outside
+            //ni buat apa fi?
             document.addEventListener('click', function(e) {
                 if (!dropdown.contains(e.target)) {
                     dropdown.classList.remove('active');

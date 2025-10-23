@@ -56,7 +56,7 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * 
      */
     public function update(Request $request, User $user)
     {
@@ -77,20 +77,21 @@ class UserController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('users.index')->with('success', 'User updated successfully!');
+        return redirect()->route('users.index');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 
      */
-    public function destroy(User $user)
-    {
-        // Prevent deleting yourself
-        if ($user->id === auth()->id()) {
-            return redirect()->route('users.index')->with('error', 'You cannot delete your own account!');
-        }
+    // public function destroy(User $user)
+    // {
+    //     // ga hapus diri sendiri
+    //     // is this necessary?
+    //     if ($user->id === auth()->id()) {
+    //         return redirect()->route('users.index');
+    //     }
 
-        $user->delete();
-        return redirect()->route('users.index')->with('success', 'User deleted successfully!');
-    }
+    //     $user->delete();
+    //     return redirect()->route('users.index');
+    // }
 }

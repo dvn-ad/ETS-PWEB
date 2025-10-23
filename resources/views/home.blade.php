@@ -38,19 +38,19 @@
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 48px;">
                 <div style="background: white; padding: 32px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    <h3 style="color: #2563eb; font-size: 24px; margin-bottom: 16px;">📚 Browse Books</h3>
+                    <h3 style="color: #2563eb; font-size: 24px; margin-bottom: 16px;">Browse Books</h3>
                     <p style="color: #64748b; margin-bottom: 24px;">Check our books</p>
                     <a href="/books" style="display: inline-block; background: #2563eb; color: white; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 500;">View Books</a>
                 </div>
 
                 <div style="background: white; padding: 32px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    <h3 style="color: #2563eb; font-size: 24px; margin-bottom: 16px;">✍️ Browse Authors</h3>
+                    <h3 style="color: #2563eb; font-size: 24px; margin-bottom: 16px;">Browse Authors</h3>
                     <p style="color: #64748b; margin-bottom: 24px;">Check our authors</p>
                     <a href="/authors" style="display: inline-block; background: #2563eb; color: white; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 500;">View Authors</a>
                 </div>
 
                 <div style="background: white; padding: 32px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    <h3 style="color: #2563eb; font-size: 24px; margin-bottom: 16px;">🏢 Browse Publishers</h3>
+                    <h3 style="color: #2563eb; font-size: 24px; margin-bottom: 16px;">Browse Publishers</h3>
                     <p style="color: #64748b; margin-bottom: 24px;">Check our publishers</p>
                     <a href="/publishers" style="display: inline-block; background: #2563eb; color: white; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 500;">View Publishers</a>
                 </div>
@@ -58,9 +58,10 @@
         </div>
 
         <!-- ============================ review ============================== -->
-    <div style="max-width: 900px; margin: 48px auto 0 auto; padding: 32px; background: #f8fafc; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+    
+    <div style="max-width: 900px; margin: 48px auto 0 auto; padding: 32px;">
             <h2 style="color: #1e40af; font-size: 2rem; margin-bottom: 1.5rem;">Website Reviews</h2>
-            <a href="{{ route('review.create') }}" class="btn btn-primary" style="margin-bottom: 1.5rem;">Add Your Review</a>
+            <a href="{{ route('review.create') }}" class="btn btn-primary" style="margin-bottom: 1.5rem;">Add Your Review</a><br><br>
             <table style="width:100%; border-collapse:collapse; background:white;">
                 <thead>
                     <tr style="background:#e0e7ef;">

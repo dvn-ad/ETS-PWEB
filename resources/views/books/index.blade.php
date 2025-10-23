@@ -50,6 +50,7 @@
                     <th>Title</th>
                     <th>Description</th>
                     <th>Price</th>
+                    <th>Stock</th>
                     <th>Release Date</th>
                     <th>Publisher</th>
                     <th>Author</th>
@@ -62,12 +63,13 @@
                         <td>{{ $book->title }}</td>
                         <td>{{ $book->description }}</td>
                         <td>Rp {{ number_format($book->price, 0) }}</td>
+                        <td>{{ $book->stock }}</td>
                         <td>{{ optional($book->release_date)->format('Y-m-d') }}</td>
                         <td>{{ $book->publisher->name ?? '-' }}</td>
                         <td>{{ $book->author->name ?? '-' }}</td>
                     </tr>
                 @empty
-                    <tr><td colspan="7">No books available.</td></tr>
+                    <tr><td colspan="8">No books available.</td></tr>
                 @endforelse
             </tbody>
         </table>

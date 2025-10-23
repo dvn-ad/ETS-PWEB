@@ -14,6 +14,7 @@ class Book extends Model
         'description',
         'price',
         'release_date',
+        'stock',
         'publisher_id',
         'author_id',
     ];
@@ -21,6 +22,7 @@ class Book extends Model
     protected $casts = [
         'release_date' => 'date',
         'price' => 'decimal:2',
+        'stock' => 'integer',
     ];
 
     public function author()

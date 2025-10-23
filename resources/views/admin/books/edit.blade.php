@@ -15,7 +15,7 @@
 </form>
 
 <form action="{{ route('books.update', $book) }}" method="POST">
-    <!-- @csrf -->
+    @csrf
     @method('PUT')
     @include('admin.books._form', ['book' => $book])
     <br>

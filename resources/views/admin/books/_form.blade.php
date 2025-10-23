@@ -26,6 +26,11 @@
     </label>
 
     <label>
+        Stock
+        <input type="number" min="0" name="stock" value="{{ old('stock', $editing ? $book->stock : 0) }}" required />
+    </label>
+
+    <label>
         Release Date
         <input type="date" name="release_date" value="{{ old('release_date', $editing && $book->release_date ? $book->release_date->format('Y-m-d') : '') }}" />
     </label>

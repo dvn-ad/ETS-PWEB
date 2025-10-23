@@ -10,7 +10,7 @@ Library Collection Database
 
 ## Feature
 | No. | Status | Feature |
-:----:|:----:|:--------:|:--------:
+:----:|:----:|:--------:
 |1 | **Done** | Admin can CRUD Books | 
 |2 | **Done** | Admin can CRUD Author |
 |3 | **Done** | Admin can CRUD Publisher | 

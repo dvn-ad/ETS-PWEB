@@ -6,7 +6,7 @@
 
 ## Idea
 
-Library Collection Databse
+Library Collection Database
 
 ## Feature
 | No. | Status | Feature |

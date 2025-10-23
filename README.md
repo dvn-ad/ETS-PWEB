@@ -1,23 +1,23 @@
-# Web Programming ETS
+# Web Programming Midterm Exam
 
 | Name           | NRP        | Kelas     |
 | ---            | ---        | ----------|
-| Rafi Putra Rosadi | 5025241211 | WEBPRO D |
 | Davin Adiputra Suryolaksana | 5025241220 | WEBPRO D |
 
-## Ide
+## Idea
 
 Library Collection Databse
 
 ## Feature
-| No. | Status | Feature | Assigned | 
+| No. | Status | Feature |
 :----:|:----:|:--------:|:--------:
-|1 | **On Progress** | CRUD Books | Davin
-|2 | - | CRUD Books Category | Rafi
-|3 | **On Progress** | CRUD Author | Davin
-|4 | - | CRUD Pinjem / HOLD | 
-|5 | - | Search Books and Filter |
-|6 | - | CRUD Review | 
-|7 | **Done** | CRUD User | Davin
-|8 | - | CRUD Request / HOLD | 
-|9 | **On Progress** | CRUD Publisher | Davin
+|1 | **Done** | Admin can CRUD Books | 
+|2 | **Done** | Admin can CRUD Author |
+|3 | **Done** | Admin can CRUD Publisher | 
+|4 | **Done** | Admin can CRUD User | 
+|5 | **Done** | nonAdmin can read Books | 
+|6 | **Done** | nonAdmin can read Publishers | 
+|7 | **Done** | nonAdmin can read Authors | 
+|8 | **Done** | Search Books by title, author, publisher |
+|9 | **Done** | Create Review | 
+|10 | **Done** | Middleware for Admin & nonAdmin | 

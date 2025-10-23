@@ -15,9 +15,6 @@
             <a href="{{ route('authors.create') }}" style="display: inline-block; background: #10b981; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">+ Create Author</a>
         </p>
 
-        @if(session('success'))
-            <div class="alert-success">{{ session('success') }}</div>
-        @endif
 
         <table>
     <thead>

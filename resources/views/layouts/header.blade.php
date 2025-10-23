@@ -9,9 +9,20 @@
                 <a href="/authors" class="hover:text-blue-500">Authors</a>
                 <a href="/publishers" class="hover:text-blue-500">Publishers</a>
                 @if(auth()->user()->is_admin)
-                    <a href="/admin/books" class="hover:text-blue-500">Manage Books</a>
-                    <a href="/admin/authors" class="hover:text-blue-500">Manage Authors</a>
-                    <a href="/admin/publishers" class="hover:text-blue-500">Manage Publishers</a>
+                    <div class="dropdown">
+                        <button class="dropdown-btn">
+                            Manage
+                            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                <path d="M6 8L2 4h8z"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="/admin/books" class="dropdown-item">Manage Books</a>
+                            <a href="/admin/authors" class="dropdown-item">Manage Authors</a>
+                            <a href="/admin/publishers" class="dropdown-item">Manage Publishers</a>
+                            <a href="/admin/users" class="dropdown-item">Manage Users</a>
+                        </div>
+                    </div>
                 @endif
             @endauth
         </nav>
@@ -25,3 +36,26 @@
         </div>
     </div>
 </header>
+
+<script>
+    // Dropdown functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdown = document.querySelector('.dropdown');
+        if (dropdown) {
+            const dropdownBtn = dropdown.querySelector('.dropdown-btn');
+            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+            
+            dropdownBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdown.classList.toggle('active');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        }
+    });
+</script>

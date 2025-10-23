@@ -11,24 +11,23 @@ class BookController extends Controller
     {
         $query = Book::with(['author', 'publisher']);
 
-        // Check if there's a search query
         if ($request->has('search') && $request->search != '') {
             $searchTerm = $request->search;
             $searchType = $request->search_type ?? 'title';
 
             if ($searchType === 'id') {
-                // Search by ID (exact match)
+                //search  id (harus sama)
                 $query->where('id', $searchTerm);
             } elseif ($searchType === 'title') {
-                // Search by book title (partial match, case-insensitive)
+                //book title pakai 'like'
                 $query->where('title', 'LIKE', '%' . $searchTerm . '%');
             } elseif ($searchType === 'publisher') {
-                // Search by publisher name
+                //search publishers
                 $query->whereHas('publisher', function($q) use ($searchTerm) {
                     $q->where('name', 'LIKE', '%' . $searchTerm . '%');
                 });
             } elseif ($searchType === 'author') {
-                // Search by author name
+                //authors
                 $query->whereHas('author', function($q) use ($searchTerm) {
                     $q->where('name', 'LIKE', '%' . $searchTerm . '%');
                 });

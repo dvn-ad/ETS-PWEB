@@ -12,7 +12,7 @@
                     <div class="dropdown">
                         <button class="dropdown-btn">
                             Manage
-                            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                            <svg class="dropdown-arrow" width="12" height="12" fill="white">
                                 <path d="M6 8L2 4h8z"/>
                             </svg>
                         </button>
@@ -26,11 +26,11 @@
                 @endif
             @endauth
         </nav>
-        <div class="user-actions flex gap-4">
+        <div class="user-actions">
             @auth
                 <form action="/logout" method="POST" style="display:inline;">
                     @csrf
-                    <button type="submit" class="btn-logout px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Logout</button>
+                    <button type="submit" class="btn-logout">Logout</button>
                 </form>
             @endauth
         </div>

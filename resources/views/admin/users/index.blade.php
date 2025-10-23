@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Users - Admin</title>
     <link href="/css/app.css" rel="stylesheet" type="text/css">
 </head>
@@ -14,16 +12,8 @@
         <h1 style="color: #1e40af; margin-bottom: 2rem;">Manage Users</h1>
 
         <p style="margin-bottom: 1.5rem;">
-            <a href="{{ route('users.create') }}" style="display: inline-block; background: #10b981; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">+ Add User</a>
+            <a href="{{ route('users.create') }}" style="display: inline-block; background: #10b981; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">Add User</a>
         </p>
-
-        @if(session('success'))
-            <div class="alert-success">{{ session('success') }}</div>
-        @endif
-
-        @if(session('error'))
-            <div class="alert-error">{{ session('error') }}</div>
-        @endif
 
         <table>
             <thead>
@@ -71,10 +61,6 @@
                 @endforelse
             </tbody>
         </table>
-
-        <div style="margin-top: 10px;">
-            {{ $users->links() }}
-        </div>
     </div>
 
 </body>

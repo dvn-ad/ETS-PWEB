@@ -11,7 +11,7 @@ use Illuminate\Validation\Rule;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * 
      */
     public function index()
     {
@@ -20,16 +20,13 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     *
      */
     public function create()
     {
         return view('admin.users.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -44,20 +41,14 @@ class UserController extends Controller
 
         User::create($data);
 
-        return redirect()->route('users.index')->with('success', 'User created successfully!');
+        return redirect()->route('users.index');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(User $user)
     {
         return view('admin.users.edit', compact('user'));
     }
 
-    /**
-     * 
-     */
     public function update(Request $request, User $user)
     {
         $data = $request->validate([

@@ -14,16 +14,16 @@ class UserController extends Controller
         ]);
         if( auth()->attempt( ['email' => $incomingFields['loginemail'], 'password'=> $incomingFields['loginpassword']] ) ){
             $request->session()->regenerate();
-            return redirect('/')->with('success', 'You have been logged in!');
+            return redirect('/');
         } else {
-            return redirect('/')->with('error', 'Invalid login credentials.');
+            return redirect('/');
         }
     }
 
 
     public function logout(){
         auth()->logout();
-        return redirect('/')->with('success', 'You have been logged out!');
+        return redirect('/');
     }
 
     public function register(Request $request){
@@ -36,7 +36,7 @@ class UserController extends Controller
         // $incomingFields['password'] = bcrypt( $incomingFields['password'] );
         $user = User::create( $incomingFields );
         auth()->login($user);
-        return redirect('/')->with('success', 'Thank you for registering!');
+        return redirect('/');
     }
 
 }

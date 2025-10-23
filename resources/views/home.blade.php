@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebPro Library</title>
     
     <link href="/css/app.css" rel="stylesheet" type="text/css">
@@ -60,7 +58,7 @@
             </div>
         </div>
 
-        <!-- Review Section -->
+        <!-- ============================ review ============================== -->
         <div style="max-width: 900px; margin: 3rem auto 0 auto; padding: 2rem; background: #f8fafc; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
             <h2 style="color: #1e40af; font-size: 2rem; margin-bottom: 1.5rem;">Website Reviews</h2>
             <a href="{{ route('review.create') }}" class="btn btn-primary" style="margin-bottom: 1.5rem;">Add Your Review</a>
@@ -73,7 +71,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach(App\Models\Review::latest()->take(5)->get() as $review)
+                    @foreach(App\Models\Review::latest()->get() as $review)
                         <tr>
                             <td style="padding:10px; border:1px solid #d1d5db;">
                                 {{ optional(App\Models\User::find($review->user_id))->name ?? 'Unknown' }}

@@ -27,7 +27,7 @@ class PublisherController extends Controller
 
         Publisher::create($data);
 
-        return redirect()->route('publishers.index')->with('success', 'Publisher created successfully!');
+        return redirect()->route('publishers.index');
     }
 
     public function edit(Publisher $publisher)
@@ -43,17 +43,17 @@ class PublisherController extends Controller
 
         $publisher->update($data);
 
-        return redirect()->route('publishers.index')->with('success', 'Publisher updated successfully!');
+        return redirect()->route('publishers.index');
     }
 
     public function destroy(Publisher $publisher)
     {
-        // cek kalo publisher punya buku
+        // cek if publisher punya buku
         // if ($publisher->books()->count() > 0) {
-        //     return redirect()->route('publishers.index')->with('error', 'Cannot delete publisher with existing books!');
+        //     return redirect()->route('publishers.index');
         // }
 
         $publisher->delete();
-        return redirect()->route('publishers.index')->with('success', 'Publisher deleted successfully!');
+        return redirect()->route('publishers.index');
     }
 }

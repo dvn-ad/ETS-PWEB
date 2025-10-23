@@ -10,11 +10,11 @@ class AdminMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check()) {
+        if (!auth()->check()){
             return redirect('/');
         }
 
-        if (!auth()->user()->is_admin) {
+        if (!auth()->user()->is_admin){
             return redirect('/');
         }
 

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Books - Admin</title>
     <link href="/css/app.css" rel="stylesheet" type="text/css">
 </head>
@@ -53,7 +51,7 @@
                             Edit
                         </button>
                     </form>
-
+                    <!-- hmmm    -->
                     <form action="{{ route('books.destroy', $book) }}" method="POST" style="display:inline" onsubmit="return confirm('Delete this book?')">
                         @csrf
                         @method('DELETE')
@@ -62,7 +60,6 @@
                 </td>
             </tr>
         @empty
-            <tr><td colspan="9">No books yet.</td></tr>
         @endforelse
     </tbody>
 </table>

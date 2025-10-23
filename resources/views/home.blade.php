@@ -29,7 +29,7 @@
     @auth
     <div style="max-width: 1200px; margin: 0 auto; padding: 48px 32px;">
             <div style="text-align: center; margin-bottom: 48px;">
-                <img src="/favicon.ico" alt="WebPro Library Favicon" style="width:128px; height:128px;">
+                <!-- <img src="/favicon.ico"style="width:128px; height:128px;"> -->
                 <h1 style="font-size: 48px; color: #1e40af; margin-bottom: 16px;">Welcome to WebPro Library</h1>
                 <p style="font-size: 20px; color: #475569; line-height: 1.8;">
                     You can check out our collection of books, authors, and publishers using the links below.

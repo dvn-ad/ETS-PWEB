@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     <title>Publishers - WebPro Library</title>
     <link href="/css/app.css" rel="stylesheet" type="text/css">
@@ -7,8 +6,8 @@
 <body>
 
     @include('layouts.header')
-    <div style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
-        <h1 style="color: #1e40af; margin-bottom: 2rem;">Publishers</h1>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 32px;">
+    <h1 style="color: #1e40af; margin-bottom: 32px;">Publishers</h1>
 
 
         <table>

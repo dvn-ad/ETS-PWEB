@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     <title>Books - MyLibrary</title>
     <link href="/css/app.css" rel="stylesheet" type="text/css">

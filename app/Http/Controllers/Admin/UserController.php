@@ -74,15 +74,14 @@ class UserController extends Controller
     /**
      * 
      */
-    // public function destroy(User $user)
-    // {
-    //     // ga hapus diri sendiri
-    //     // is this necessary?
-    //     if ($user->id === auth()->id()) {
-    //         return redirect()->route('users.index');
-    //     }
+    public function destroy(User $user)
+    {
+        // ga hapus diri sendiri
+        if ($user->id === auth()->id()) {
+            return redirect()->route('users.index');
+        }
 
-    //     $user->delete();
-    //     return redirect()->route('users.index');
-    // }
+        $user->delete();
+        return redirect()->route('users.index');
+    }
 }

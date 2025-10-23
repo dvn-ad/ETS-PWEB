@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     <title>Manage Publishers - Admin</title>
     <link href="/css/app.css" rel="stylesheet" type="text/css">

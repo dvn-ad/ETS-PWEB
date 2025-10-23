@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 body {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: Arial, sans-serif;
     background: #f3f4f6;
     color: #1e293b;
     margin: 0;
@@ -22,10 +21,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 2rem;
+    padding: 0 32px;
 }
 .main-header .logo {
-    font-size: 2rem;
+    font-size: 32px;
     font-weight: bold;
     letter-spacing: 1px;
     color: #fff;
@@ -36,7 +35,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s;
-    padding: 0.5rem 1rem;
+    padding: 8px 16px;
     border-radius: 4px;
 }
 .main-header .nav-links a:hover {
@@ -48,7 +47,7 @@ body {
     color: #fff;
     border: none;
     border-radius: 4px;
-    padding: 0.5rem 1rem;
+    padding: 8px 16px;
     font-weight: 500;
     cursor: pointer;
     transition: background 0.2s;
@@ -123,20 +122,7 @@ body {
     border-bottom: 1px solid #e2e8f0;
 }
 
-.dropdown-item:first-child {
-    border-radius: 8px 8px 0 0;
-}
 
-.dropdown-item:last-child {
-    border-bottom: none;
-    border-radius: 0 0 8px 8px;
-}
-
-.dropdown-item:hover {
-    background: #dbeafe;
-    color: #1e40af !important;
-    text-decoration: none;
-}
 
 
 h1, h2, h3 {

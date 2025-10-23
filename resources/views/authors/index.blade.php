@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     <title>Authors - WebPro Library</title>
     <link href="/css/app.css" rel="stylesheet" type="text/css">

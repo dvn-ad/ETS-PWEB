@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     <title>WebPro Library</title>
     
@@ -28,38 +27,38 @@
     @include('layouts.header')
 
     @auth
-        <div style="max-width: 1200px; margin: 0 auto; padding: 3rem 2rem;">
-            <div style="text-align: center; margin-bottom: 3rem;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 48px 32px;">
+            <div style="text-align: center; margin-bottom: 48px;">
                 <img src="/favicon.ico" alt="WebPro Library Favicon" style="width:128px; height:128px;">
-                <h1 style="font-size: 3rem; color: #1e40af; margin-bottom: 1rem;">Welcome to WebPro Library</h1>
-                <p style="font-size: 1.25rem; color: #475569; line-height: 1.8;">
+                <h1 style="font-size: 48px; color: #1e40af; margin-bottom: 16px;">Welcome to WebPro Library</h1>
+                <p style="font-size: 20px; color: #475569; line-height: 1.8;">
                     You can check out our collection of books, authors, and publishers using the links below.
                 </p>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    <h3 style="color: #2563eb; font-size: 1.5rem; margin-bottom: 1rem;">📚 Browse Books</h3>
-                    <p style="color: #64748b; margin-bottom: 1.5rem;">Check our books</p>
-                    <a href="/books" style="display: inline-block; background: #2563eb; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">View Books</a>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 48px;">
+                <div style="background: white; padding: 32px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color: #2563eb; font-size: 24px; margin-bottom: 16px;">📚 Browse Books</h3>
+                    <p style="color: #64748b; margin-bottom: 24px;">Check our books</p>
+                    <a href="/books" style="display: inline-block; background: #2563eb; color: white; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 500;">View Books</a>
                 </div>
 
-                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    <h3 style="color: #2563eb; font-size: 1.5rem; margin-bottom: 1rem;">✍️ Browse Authors</h3>
-                    <p style="color: #64748b; margin-bottom: 1.5rem;">Check our authors</p>
-                    <a href="/authors" style="display: inline-block; background: #2563eb; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">View Authors</a>
+                <div style="background: white; padding: 32px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color: #2563eb; font-size: 24px; margin-bottom: 16px;">✍️ Browse Authors</h3>
+                    <p style="color: #64748b; margin-bottom: 24px;">Check our authors</p>
+                    <a href="/authors" style="display: inline-block; background: #2563eb; color: white; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 500;">View Authors</a>
                 </div>
 
-                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    <h3 style="color: #2563eb; font-size: 1.5rem; margin-bottom: 1rem;">🏢 Browse Publishers</h3>
-                    <p style="color: #64748b; margin-bottom: 1.5rem;">Check our publishers</p>
-                    <a href="/publishers" style="display: inline-block; background: #2563eb; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">View Publishers</a>
+                <div style="background: white; padding: 32px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color: #2563eb; font-size: 24px; margin-bottom: 16px;">🏢 Browse Publishers</h3>
+                    <p style="color: #64748b; margin-bottom: 24px;">Check our publishers</p>
+                    <a href="/publishers" style="display: inline-block; background: #2563eb; color: white; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 500;">View Publishers</a>
                 </div>
             </div>
         </div>
 
         <!-- ============================ review ============================== -->
-        <div style="max-width: 900px; margin: 3rem auto 0 auto; padding: 2rem; background: #f8fafc; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+    <div style="max-width: 900px; margin: 48px auto 0 auto; padding: 32px; background: #f8fafc; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
             <h2 style="color: #1e40af; font-size: 2rem; margin-bottom: 1.5rem;">Website Reviews</h2>
             <a href="{{ route('review.create') }}" class="btn btn-primary" style="margin-bottom: 1.5rem;">Add Your Review</a>
             <table style="width:100%; border-collapse:collapse; background:white;">

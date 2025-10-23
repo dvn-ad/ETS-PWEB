@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     <title>Manage Books - Admin</title>
     <link href="/css/app.css" rel="stylesheet" type="text/css">
@@ -10,11 +9,9 @@
 
     <div style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
         <h1 style="color: #1e40af; margin-bottom: 2rem;">Manage Books</h1>
-
         <p style="margin-bottom: 1.5rem;">
             <a href="{{ route('books.create') }}" style="display: inline-block; background: #10b981; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 500;">+ Add Book</a>
         </p>
-
         <table>
     <thead>
         <tr>
